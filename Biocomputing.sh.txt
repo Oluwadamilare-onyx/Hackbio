@@ -1,0 +1,221 @@
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ pwd
+/workspaces/Bioinformatics
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ echo Oluwadamilare
+Oluwadamilare
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ mkdir Oluwadamilare
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ mkdir biocomputing
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ cd biocomputing/
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.fna
+--2025-08-30 11:22:04--  https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.fna
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 200694 (196K) [text/plain]
+Saving to: ‘wildtype.fna’
+
+wildtype.fna           100%[===========================>] 195.99K  --.-KB/s    in 0.003s  
+
+2025-08-30 11:22:04 (70.2 MB/s) - ‘wildtype.fna’ saved [200694/200694]
+
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+--2025-08-30 11:22:16--  https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 399730 (390K) [text/plain]
+Saving to: ‘wildtype.gbk’
+
+wildtype.gbk           100%[===========================>] 390.36K  --.-KB/s    in 0.004s  
+
+2025-08-30 11:22:16 (97.8 MB/s) - ‘wildtype.gbk’ saved [399730/399730]
+
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+--2025-08-30 11:22:22--  https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 399730 (390K) [text/plain]
+Saving to: ‘wildtype.gbk.1’
+
+wildtype.gbk.1         100%[===========================>] 390.36K  --.-KB/s    in 0.005s  
+
+2025-08-30 11:22:22 (79.3 MB/s) - ‘wildtype.gbk.1’ saved [399730/399730]
+
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ cd ../
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ mv biocomputing/wildtype.fna Oluwadamilare/
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ cd biocomputing/
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ rm wildtype.gbk.1
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ cd ../
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ cd Oluwadamilare/
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/Oluwadamilare (main) $ grep "tatatata" wildtype.fna 
+atccacagcacctactactattactaagaacttaaaacctatataattatatataaacga
+aattacttgaatattattcataatatattaacaactttattatactgctctttatatata
+actatatataagtaaaacaatgatggacaatgactgtgaaaaagtatgtgatagaaacgt
+aaggtatatataagattaaacattttaccttagataaagaaaatggtgcattatttaatc
+gtatatatatttgccacgattgcatgtggttgtagtgcgatactgcaaggtttagcgacg
+attatatatatcaattagaacattgatggttgttattacaggggaaggctcaaggtagtc
+attatgcaaggtttagaagcagattcagattactaatatatataaaatttgggagtgata
+gaaaaatatatataagtcattaactgtctctgcaattgttgcaacggtatcattaagtgc
+aatactatatatataataccaattttaatgaaaatttttaagggaggtaaataatggaaa
+tagttgtcgcgcttatatatatcttcttcaaagtaatttttgataagcgaattaaagatg
+aatcgcccgggacgtattttaataatttttcagcagttatatatataggtagaggtgttt
+ctttatccataatgatagccccctatatatatctttatttacttataccctaacattatt
+atctttagcggatattgaaatttttccacatcaacacgggttcaaaattatatataacag
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/Oluwadamilare (main) $ grep "tatatata" wildtype.fna > Mutant.txt
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/Oluwadamilare (main) $ cd ../
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ cd biocomputing/
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ awk 'NR>1' wildtype.gbk | wc -l
+5749
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ grep "^LOCUS" wildtype.gbk | awk '{print $3}'
+197394
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ grep "^SOURCE" wildtype.gbk | head -n 1 | awk '{$1="";
+ print $0}'
+ Staphylococcus aureus
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ grep '/gene="' wildtype.gbk | cut -d '"' -f2
+dnaA
+dnaN
+recF
+gyrB
+gyrA
+nnrD
+hutH
+serS
+ygaZ
+metX
+gdpP
+rplI
+dnaC
+purA
+walR
+walK
+yycI
+yycJ
+mggB
+rlmH
+pre
+ble
+knt
+ugpQ
+paaZ
+pbp
+mecR1
+mecI
+nagC
+pspE_1
+pksB
+pspE_2
+csoR
+cadA
+cadC
+xerD
+hin
+tnpR
+mcrB
+emrY
+dus
+recD
+plc
+btr
+yxeP
+norB_1
+lctP
+spa
+sarS
+yfhA
+yfiZ
+yfiY
+sbnA
+arcB
+iucC_1
+tetA
+iucA
+iucC_2
+garL
+btrK
+butA
+wbgU
+tuaA
+wbnH
+rfbX
+sodM
+treR
+deoD
+norB_2
+deoC1
+deoB
+phnE_1
+phnE_2
+glnQ
+phnD
+yfkN
+adhE
+cap8A
+ywqD
+ywqE
+pglF
+capD
+wbjC
+wbpI
+maa
+epsL
+gnu
+wecC
+mnaA
+isdI
+ybaN
+aldA
+czcD
+cmpD
+cmpC
+ssuC
+srfAB
+sfp
+yagU
+argB
+argJ
+argC
+rocD2
+brnQ
+yecD
+ipdC
+ptsG
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ 
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics/biocomputing (main) $ cd ../
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ 
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ history
+    1  pwd
+    2  echo Oluwadamilare
+    3  mkdir Oluwadamilare
+    4  mkdir biocomputing
+    5  ls -lh
+    6  wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.fna
+    7  https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+    8  wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+    9  pwd
+   10  echo Oluwadamilare
+   11  mkdir Oluwadamilare
+   12  mkdir biocomputing
+   13  cd biocomputing/
+   14  wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.fna
+   15  wget https://raw.githubusercontent.com/josoga2/dataset-repos/main/wildtype.gbk
+   16  cd ../
+   17  mv biocomputing/wildtype.fna Oluwadamilare/
+   18  cd biocomputing/
+   19  rm wildtype.gbk.1
+   20  cd ../
+   21  cd Oluwadamilare/
+   22  grep "tatatata" wildtype.fna 
+   23  grep "tatatata" wildtype.fna > Mutant.txt
+   24  cd ../
+   25  cd biocomputing/
+   26  awk 'NR>1' wildtype.gbk | wc -l
+   27  grep "^LOCUS" wildtype.gbk | awk '{print $3}'
+   28  grep "^SOURCE" wildtype.gbk | head -n 1 | awk '{$1=""; print $0}'
+   29  grep '/gene="' wildtype.gbk | cut -d '"' -f2
+   30  cd ../
+   31  history
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ ls -lh
+total 8.0K
+drwxrwxrwx+ 2 codespace codespace 4.0K Aug 30 11:25 Oluwadamilare
+drwxrwxrwx+ 2 codespace codespace 4.0K Aug 30 11:23 biocomputing
+@Oluwadamilare-onyx ➜ /workspaces/Bioinformatics (main) $ 
